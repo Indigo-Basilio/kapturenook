@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Kapture Nook Studio</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <main class="admin-root">
+    <header class="admin-header">
+      <h1>Kapture Nook — Admin</h1>
+      <div id="authArea" class="auth-area">
+        <input id="adminPassword" type="password" placeholder="Admin password" />
+        <button id="btnLogin" class="btn-primary">Sign in</button>
+        <button id="btnLogout" class="btn-ghost hidden">Sign out</button>
+      </div>
+    </header>
+
+    <section id="adminPanel" class="admin-panel hidden">
+      <div class="panel-controls">
+        <input id="q" placeholder="Search by name, email, service, or date (YYYY-MM-DD)" />
+        <button id="btnReload" class="btn-outline">Reload</button>
+      </div>
+
+      <div id="stats" class="stats">Loading…</div>
+
+      <div id="bookingsTable" class="bookings-table">Loading bookings…</div>
+    </section>
+
+    <div id="message" class="message hidden"></div>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

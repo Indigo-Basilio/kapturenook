@@ -1,0 +1,23 @@
+:root{
+  --bg:#071029; --muted:#9aa4b2; --accent1:#FF9A8B; --accent2:#FFD86B; --white:#F8FAFC;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--white)}
+.admin-root{max-width:1100px;margin:2rem auto;padding:1rem}
+.admin-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.auth-area input{padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
+.btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021026;padding:0.5rem 0.8rem;border-radius:8px;border:0;font-weight:700}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:0.45rem 0.7rem;border-radius:8px;color:var(--muted)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:0.45rem 0.7rem;border-radius:8px;color:var(--muted)}
+.panel-controls{display:flex;gap:0.6rem;margin-bottom:0.75rem}
+.panel-controls input{flex:1;padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:var(--white)}
+.stats{color:var(--muted);margin-bottom:0.5rem}
+.bookings-table{background:rgba(255,255,255,0.01);padding:0.6rem;border-radius:10px}
+.booking-row{display:flex;align-items:center;justify-content:space-between;padding:0.6rem;border-radius:8px;margin-bottom:0.5rem;background:rgba(255,255,255,0.02)}
+.booking-left{flex:1}
+.booking-meta{font-size:0.92rem;color:var(--muted)}
+.booking-actions{display:flex;gap:0.5rem;align-items:center}
+.status-badge{padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
+.select-status{padding:4px 8px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.message{margin-top:1rem;padding:0.75rem;border-radius:8px}
+.hidden{display:none}
