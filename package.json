@@ -1,0 +1,14 @@
+{
+  "name": "kapture-nook",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "echo 'No build step; static site'",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.24.0",
+    "resend": "^1.0.0"
+  }
+}

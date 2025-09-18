@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kapture Nook Studio — Book & Schedule</title>
+  <meta name="description" content="Kapture Nook Studio — Book sessions online. Monthly calendar, timezone-aware, email confirmations." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- FullCalendar CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Kapture Nook Studio home">
+        <!-- simple logo -->
+        <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+          <defs><linearGradient id="kn-grad" x1="0" x2="1"><stop offset="0" stop-color="#FF9A8B"/><stop offset="1" stop-color="#FFD86B"/></linearGradient></defs>
+          <rect x="4" y="4" width="92" height="92" rx="16" fill="url(#kn-grad)"/>
+          <g transform="translate(20,20)" fill="#021026"><circle cx="18" cy="22" r="6"/><rect x="36" y="16" width="28" height="12" rx="2"/><rect x="0" y="46" width="72" height="6" rx="3" /></g>
+        </svg>
+        <span class="brand-name">Kapture Nook Studio</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#booking">Book</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact" class="btn-outline">Contact</a>
+        <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle dark mode">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- simplified hero -->
+    <section class="hero container">
+      <h1>Kapture Nook Studio</h1>
+      <p class="tagline">Quack your Best Pose! — Creative, fun & memorable photoshoots for all ages.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#booking">Book a Session</a>
+        <a class="btn-ghost" href="#gallery">See our work</a>
+      </div>
+    </section>
+
+    <!-- services -->
+    <section id="services" class="section container">
+      <h2>Services</h2>
+      <div class="cards-grid">
+        <article class="card service">
+          <div class="card-icon">🧸</div>
+          <h3>Kids' Party Shoot</h3>
+          <p>Up to 10 kids — 30 edited photos. ₱5,000</p>
+          <button class="btn-outline select-service" data-service="Kids' Party Shoot" data-price="5000">Select</button>
+        </article>
+        <article class="card service">
+          <div class="card-icon">👩‍🎨</div>
+          <h3>Portrait Session</h3>
+          <p>20 edited images. ₱2,200</p>
+          <button class="btn-outline select-service" data-service="Portrait Session" data-price="2200">Select</button>
+        </article>
+        <article class="card service">
+          <div class="card-icon">👪</div>
+          <h3>Family Session</h3>
+          <p>25 edited images, up to 6 people. ₱4,200</p>
+          <button class="btn-outline select-service" data-service="Family Session" data-price="4200">Select</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- booking -->
+    <section id="booking" class="section container">
+      <div class="booking-grid">
+        <div>
+          <h2>Booking Calendar</h2>
+          <p class="section-sub">Monthly view — click a date to pick a day then choose a time slot. Timezone-aware.</p>
+
+          <!-- FullCalendar placeholder -->
+          <div id="calendarContainer" style="margin-bottom:1rem;">
+            <div id="calendar"></div>
+          </div>
+
+          <div class="booking-controls">
+            <label>
+              <span>Selected service</span>
+              <div id="selectedService" class="selected-service">— Choose a service —</div>
+            </label>
+
+            <label>
+              <span>Available times</span>
+              <div id="slotList" class="slot-list" role="list"></div>
+            </label>
+
+            <div class="help">Booked events are shown on the calendar. Local timezone: <strong id="tzLabel"></strong></div>
+          </div>
+        </div>
+
+        <aside class="booking-form-card">
+          <h3>Confirm booking</h3>
+          <form id="bookingForm" novalidate>
+            <label><span>Full name</span><input id="bk_name" name="name" required minlength="2" placeholder="Your full name" /><small class="error" aria-live="polite"></small></label>
+            <label><span>Email</span><input id="bk_email" name="email" type="email" required placeholder="you@example.com" /><small class="error" aria-live="polite"></small></label>
+            <label><span>Phone (optional)</span><input id="bk_phone" name="phone" placeholder="+63 9xx xxx xxxx" /></label>
+            <label><span>Notes (optional)</span><textarea id="bk_notes" name="notes" rows="3"></textarea></label>
+
+            <div class="form-actions">
+              <button id="confirmBooking" class="btn-primary" type="submit" disabled>Confirm Booking</button>
+              <button id="clearSelection" class="btn-ghost" type="button">Clear</button>
+            </div>
+
+            <div id="bookingResult" class="form-result" aria-live="polite"></div>
+          </form>
+
+          <div class="my-bookings" style="margin-top:1rem">
+            <h4>Your recent bookings (fetched from server)</h4>
+            <div id="bookingsList" class="bookings-list">Loading…</div>
+            <button id="exportBookings" class="btn-outline">Export bookings (JSON)</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- gallery & contact simplified -->
+    <section id="gallery" class="section container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <!-- placeholders -->
+        <div class="gallery-item">SVG photo</div>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <h2>Contact</h2>
+      <p>Email: hello@kapturenook.example — Phone: +63 912 000 0000</p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div>© <span id="year"></span> Kapture Nook Studio — Quack your Best Pose! 🦆</div>
+  </footer>
+
+  <!-- FullCalendar + moment/timezone support via plugin-free approach (using built-in) -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+  <!-- main script (module) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
